@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+    --color-white-1: #f9fbfc;
+    --color-primary-1: #5046e4;
+    --color-secondary-1: #F3F4F6;
+    --font-dmsans: "DM Sans", sans-serif;
+    --font-montserrat: "Montserrat", sans-serif;
+    --screen-xs: 480px;
+    --screen-sm: 768px;
+    --screen-md: 1060px;
+}
+  
+html,
+body,
+#root,
+.app {
+  height: 100%;
+  width: 100%;
+  font-family: "DM Sans", sans-serif;
+}
