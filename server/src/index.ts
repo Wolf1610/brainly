@@ -5,8 +5,10 @@ import { Content, Link, User } from "./db";
 import { USER_JWT } from "./config";
 import { userMiddleware } from "./middleware";
 import { random } from "./utils";
+import cors from "cors";
 
 const app = express();
+app.use(cors());
 
 app.use(express.json());
 
@@ -58,15 +60,13 @@ app.post("/api/v1/signin", async (req, res) => {
 });
 
 app.post("/api/v1/content", userMiddleware, async (req, res) => {
-  const link = req.body.link;
-  const type = req.body.type;
+  const { title, link, type } = req.body;
   await Content.create({
+    title,
     link,
-    type,
-    title: req.body.title,
-    // @ts-ignore
-    userId: req.userId,
     tags: [],
+    type,
+    userId: req.userId,
   });
 
   res.json({

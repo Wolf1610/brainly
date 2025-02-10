@@ -1,4 +1,4 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose, { model, Schema } from "mongoose";
 
 const connectDb = async () => {
     try {
@@ -41,9 +41,9 @@ const LinkSchema = new Schema({
     }
 });
 
-const User = mongoose.model("User", UserSchema);
-const Content = mongoose.model("Content", ContentSchema);
-const Link = mongoose.model("Link", LinkSchema);
+const User = model("User", UserSchema);
+const Content = model("Content", ContentSchema);
+const Link = model("Link", LinkSchema);
 
 export {
     User, 
